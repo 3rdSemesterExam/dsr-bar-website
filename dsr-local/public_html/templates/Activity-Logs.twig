@@ -1,0 +1,41 @@
+{% include 'header.html' %} <!-- Includes the file header.html, which contains the menu bar -->
+
+    <div class="container">
+        <h2 class="sub-header text-align-center">Activity Logs</h2>
+
+
+            <table class="table table-striped margin-left">
+                <!-- Title, and date filtering inputs -->
+                <h4>Choose a date</h4>
+                From: <input type="date" name="From-Date"> To: <input type="date" name="To-Date">
+                <input type="submit" value="Date">
+
+                <thead>
+                <tr>
+                    <!-- Titles of the lists -->
+                    <td><h4>ID</h4></td>
+                    <td><h4>Activity</h4></td>
+                    <td><h4>Account Holder</h4></td>
+                    <td><h4>DSR User</h4></td>
+                    <td><h4>Amount</h4></td>
+                    <td><h4>Date</h4></td>
+                </tr>
+                </thead>
+
+                <tbody>
+                    {% for activityLog in result %} <!-- Loops through the items in result -->
+                        <tr>
+                            <!-- Gets the data from result -->
+                            <td><a href="#" target="_blank"><p>{{ activityLog.Id }}</p></a> </td>
+                            <td><a href="#" target="_blank"><p>{{ activityLog.FK_Account }}</p></a> </td>
+                            <td><a href="#" target="_blank"><p>{{ activityLog.FK_Account }}</p></a> </td>
+                            <td><a href="#" target="_blank"><p>{{ activityLog.FK_User }}</p></a> </td>
+                            <td><a href="#" target="_blank"><p>{{ activityLog.Amount }} kr</p></a> </td>
+                            <td><a href="#" target="_blank"><p>{{ activityLog.Created }}</p></a> </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div> <!-- container -->
+
+{% include 'footer.html' %} <!-- Includes the file footer.html, which contains the closing tags of the html and body -->

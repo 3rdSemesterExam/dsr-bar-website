@@ -1,0 +1,35 @@
+{% include 'header.html' %} <!-- Includes the file header.html, which contains the menu bar -->
+
+    <div class="container">
+        <h2 class="sub-header text-align-center">Purchase</h2>
+            <table class="table table-striped">
+                <h4>Choose a date</h4>
+                From: <input type="date" name="From-Date"> To: <input type="date" name="To-Date">
+                <input type="submit" value="Date">
+
+                <thead>
+                <tr>
+                    <!-- titles for table -->
+                    <td><h4>ID</h4></td>
+                    <td><h4>Account</h4></td>
+                    <td><h4>DRS User</h4></td>
+                    <td><h4>Price</h4></td>
+                    <td><h4>Date</h4></td>
+                </tr>
+                </thead>
+
+                <tbody>
+                    {% for purchases in result %}  <!--  Loops through the items in result -->
+                        <tr>
+                            <td><a href="#" target="_blank"><p>{{ purchases.Id }}</p></a> </td>
+                            <td><a href="#" target="_blank"><p>{{ purchases.FK_Account }}</p></a> </td>
+                            <td><a href="#" target="_blank"><p>{{ purchases.FK_User }}</p></a> </td>
+                            <td><p>{{ purchases.TotalPrice }} kr</p></td>
+                            <td><a href="#" target="_blank"><p>{{ purchases.Created }}</p></a> </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div> <!-- container -->
+
+{% include 'footer.html' %} <!-- Includes the file footer.html, which contains the closing tags of the html and body -->

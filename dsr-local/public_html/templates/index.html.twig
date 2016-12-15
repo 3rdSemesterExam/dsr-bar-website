@@ -1,0 +1,23 @@
+{% include 'headerIndex.html' %} <!-- Includes the file header.html, which contains the menu bar -->
+
+        <div class="container">
+            <!-- log in form -->
+            <form class="form-signin" method='POST'>
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <!-- username(email) input -->
+                <label for="textBox_Username" class="sr-only">Email Address</label>
+                <input type="email" name="textBox_Username" class="form-control" placeholder="Email Address" required autofocus>
+
+                <!-- password input -->
+                <label for="textBox_Password" class="sr-only">Password</label>
+                <input type="password" name="textBox_Password" class="form-control" placeholder="Password" required>
+                <!--<div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>-->
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+        </div> <!-- /container -->
+
+{% include 'footer.html' %} <!-- Includes the file footer.html, which contains the closing tags of the html and body -->

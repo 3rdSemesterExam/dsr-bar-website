@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<winginx>
+  <project>
+    <name>dsr-local</name>
+    <url>http://dsr-local/</url>
+    <root>home/dsr-local</root>
+  </project>
+</winginx>

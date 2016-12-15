@@ -1,0 +1,83 @@
+{% include 'header.html' %} <!-- Includes the file header.html, which contains the menu bar -->
+
+<section class="container">
+    <h2 class="sub-header text-align-center">Admin Panel</h2>
+    <div class="row">
+
+        <form class="form-horizontal col-md-6" method="post" action="Admin-Panel.php?postUser">
+            <fieldset>
+                <!-- Form Name -->
+                <h3 class="sub-header text-align-center">Create DSR user:</h3>
+
+                <!-- username(email) input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput_Email">Email:</label>
+                    <div class="col-md-4">
+                        <input id="textinput_Email" name="textBox_email" type="email" placeholder="DSR@edu.easj.dk" class="form-control input-md" required="">
+                    </div>
+                </div>
+
+                <!-- Password input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="passwordinput_pass">Password:</label>
+                    <div class="col-md-4">
+                        <input id="passwordinput_pass" name="TextBox_password" type="password" placeholder="******" class="form-control input-md" required="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,}" title="Password must contains atleat 6 symbols, 1 cap letter, 1 normal letter, 1 number and 1 special symbol">
+                    </div>
+                </div>
+
+                <!-- Password confirm input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="passwordinput_passConfirm">Password Confirm</label>
+                    <div class="col-md-4">
+                        <input id="passwordinput_passConfirm" name="TextBox_ConfirmPassword" type="password" placeholder="******" class="form-control input-md" required="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,}" title="Password must contains atleat 6 symbols, 1 cap letter, 1 normal letter, 1 number and 1 special symbol">
+
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="button_Createuser"></label>
+                    <div class="col-md-4">
+                        <button id="button_Createuser" name="button_Createuser" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="col-md-6">
+            <h3 class="sub-header text-align-center">Current DSR user:</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <!-- Titles of the table -->
+                        <td><h4>ID</h4></td>
+                        <td><h4>DSR User</h4></td>
+                        <td><h4>Created Date</h4></td>
+                        <td class="danger"><h4>Only "Super Admin"</h4></td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for user in result %} <!--  Loops through the items in result -->
+                    <tr>
+                        <td id=""><a href="#" target="_blank"><p>{{ user.Id }}</p></a> </td>
+                        <td><a href="#" target="_blank"><p>{{ user.Username }}</p></a> </td>
+                        <td><a href="#" target="_blank"><p>01-12-2016</p></a> </td>
+
+                        <form method="delete" action="Admin-Panel.php"> <!--onsubmit="return confirm('Are you sure you want to Delete this user?');">-->
+                            <td class="danger">
+                                <div class="form-group">
+                                    <input type="submit" value="Delete" class="btn btn-danger center-block"> <!-- Delete does not work -->
+                                </div>
+                            </td>
+                        </form>
+                    </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+        </div> <!-- col-md-6 -->
+    </div> <!-- row -->
+</section>
+{% include 'footer.html' %} <!-- Includes the file footer.html, which contains the closing tags of the html and body -->
